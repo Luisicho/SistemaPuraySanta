@@ -38,8 +38,7 @@ const Topbar = () => {
                         <DarkModeOutlinedIcon />
                     ): (
                         <LightModeOutlinedIcon />
-                    )};
-                    <LightModeOutlinedIcon />
+                    )}
                 </IconButton>
                 <IconButton>
                     <SettingsOutlinedIcon />
