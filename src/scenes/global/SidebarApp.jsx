@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { IconButton, Typography, useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
 import Link from "react-router-dom";
 import { token } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -17,29 +18,35 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
 const SidebarApp = () => {
   const theme = useTheme();
-  const colors = token(theme.palette.colors);
+  const colors = token(theme.palette.mode);
   const [isCollapsed, serIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <Box
-      sx={{
-        "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
-        },
-        "& .pro-icon-wrappor": {
-          backgroundColor: "transparent !important",
-        },
-        "& .pro-inner.item:hover": {
-          padding: "5px 35px 5px 20px !important",
-        },
-        "& .pro-menu-item:active": {
-          color: "#6870fa !important",
-        },
-      }}
-    >
-      <Sidebar>
-        <Menu>
+    <Box>
+      <Sidebar
+        rootStyles={{
+          border: "none",
+          height: "100vh",
+          [`& .ps-sidebar-container`]: {
+            backgroundColor: `${colors.primary[400]} !important`,
+          },
+        }}
+      >
+        <Menu
+          menuItemStyles={{
+            button: {
+              padding: "5px 35px 5px 20px !important",
+              backgroundColor: "transparent !important",
+              "&:hover": {
+                backgroundColor: "#868dfb !important",
+              },
+              "&:active": {
+                backgroundColor: "#6870fa !important",
+              },
+            },
+          }}
+        >
           <MenuItem>
             <Box></Box>
           </MenuItem>
@@ -60,13 +67,20 @@ const SidebarApp = () => {
               <Box textAlign="center">
                 <Typography
                   variant="h2"
-                  color={colors.grey[100]}
                   fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
+                  sx={{
+                    color: colors.grey[100],
+                    m: "10px 0 0 0",
+                  }}
                 >
                   Ed Roh
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: colors.greenAccent[500],
+                  }}
+                >
                   VP Fancy Admin
                 </Typography>
               </Box>
