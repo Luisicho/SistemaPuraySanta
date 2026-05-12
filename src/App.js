@@ -1,10 +1,11 @@
 import { ColorModeContext, useMode } from "./theme";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Routes, Route } from "react-router-dom"; 
-import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Routes, Route } from "react-router-dom";
+import CssBaseline from "@mui/material/CssBaseline";
 import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
-import SidebarApp from "./scenes/global/SidebarApp"
+import SidebarApp from "./scenes/global/SidebarApp";
+
 // import Team from "./scenes/team"
 // import Invoices from "./scenes/invoices"
 // import Contacts from "./scenes/contacts"
@@ -16,8 +17,8 @@ import SidebarApp from "./scenes/global/SidebarApp"
 // import Calendar from "./scenes/calendar"
 
 function App() {
-  const   [theme, colorMode] = useMode();
-  
+  const [theme, colorMode] = useMode();
+
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -27,7 +28,7 @@ function App() {
           <main className="content">
             <Topbar />
             <Routes>
-              <Route path ="/" element={<Dashboard/>} />
+              <Route path="/" element={<Dashboard />} />
               {/* <Route path ="/team" elemeπnt={<Team/>} /> */}
               {/* <Route path ="/contacts" element={<Contacts/>} /> */}
               {/* <Route path ="/invoices" element={<Invoices/>} /> */}
