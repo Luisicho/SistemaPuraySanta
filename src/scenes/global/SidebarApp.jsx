@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { IconButton, Typography, useTheme } from "@mui/material";
-import Box from "@mui/material/Box";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import Link from "react-router-dom";
 import { token } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
