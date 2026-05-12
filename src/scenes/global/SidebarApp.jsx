@@ -15,7 +15,6 @@ import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import Dashboard from "../dashboard";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -36,12 +35,13 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const SidebarApp = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, serIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
     <Box>
       <Sidebar
+        collapsed={isCollapsed}
         rootStyles={{
           border: "none",
           height: "100vh",
@@ -51,6 +51,7 @@ const SidebarApp = () => {
         }}
       >
         <Menu
+          iconShape="square"
           menuItemStyles={{
             button: {
               padding: "5px 35px 5px 20px !important",
@@ -64,8 +65,32 @@ const SidebarApp = () => {
             },
           }}
         >
-          <MenuItem>
-            <Box></Box>
+          {/* LOGO AND MENU ICON */}
+          <MenuItem
+            onClick={() => {
+              setIsCollapsed(!isCollapsed);
+            }}
+            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+            style={{
+              margin: "10px 0 20px 0",
+              color: colors.grey[100],
+            }}
+          >
+            {!isCollapsed && (
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                ml="15px"
+              >
+                <Typography variant="h3" color={colors.grey[300]}>
+                  ADMIN
+                </Typography>
+                <IconButton onClick={()=> setIsCollapsed(!isCollapsed)}>
+                  <MenuOutlinedIcon />
+                </IconButton>
+              </Box>
+            )}
           </MenuItem>
 
           {/* USER */}
@@ -113,6 +138,13 @@ const SidebarApp = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Data
+            </Typography>
             <Item
               title="Manage Team"
               to="/team"
@@ -134,6 +166,13 @@ const SidebarApp = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Pages
+            </Typography>
             <Item
               title="Profile Form"
               to="/form"
@@ -155,6 +194,13 @@ const SidebarApp = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Charts
+            </Typography>
             <Item
               title="Bar Chart"
               to="/bar"
