@@ -78,15 +78,17 @@ const SidebarApp = () => {
           >
             {!isCollapsed && (
               <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  ml: "15px",
+                }}
               >
                 <Typography variant="h3" color={colors.grey[300]}>
                   ADMIN
                 </Typography>
-                <IconButton onClick={()=> setIsCollapsed(!isCollapsed)}>
+                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
               </Box>
@@ -96,7 +98,7 @@ const SidebarApp = () => {
           {/* USER */}
           {!isCollapsed && (
             <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
+              <Box sx={{display:"flex", justifyContent:"center", alignItems:"center"}}>
                 <img
                   alt="profile-user"
                   width="100px"
@@ -106,7 +108,7 @@ const SidebarApp = () => {
                 />
               </Box>
 
-              <Box textAlign="center">
+              <Box sx={{textAlign:"center"}}>
                 <Typography
                   variant="h2"
                   fontWeight="bold"
