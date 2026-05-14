@@ -1,4 +1,4 @@
-import { Box, Typographym, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
@@ -58,10 +58,10 @@ const Team = () => {
             {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
             {access === "manager" && <SecurityOutlinedIcon />}
             {access === "user" && <LockOpenOutlinedIcon />}
-            <Typographym
+            <Typography
               colors={colors.grey[100]}
               sx={{ ml: "5px" }}
-            ></Typographym>
+            ></Typography>
           </Box>
         );
       },
@@ -82,7 +82,7 @@ const Team = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: color.greenAccent[300],
+            color: colors.greenAccent[300],
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroudColor: colors.blueAccent[700],
@@ -102,3 +102,5 @@ const Team = () => {
     </Box>
   );
 };
+
+export default Team;
