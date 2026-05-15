@@ -18,6 +18,18 @@ const Team = () => {
       headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
+      renderCell: (params) => (
+        <Typography
+          sx={{
+            color: `${colors.greenAccent[300]} !important`,
+            display: "flex",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          {params.value}
+        </Typography>
+      ),
     },
     {
       field: "age",
@@ -43,24 +55,32 @@ const Team = () => {
       renderCell: ({ row: { access } }) => {
         return (
           <Box
-            width="60%"
-            m="0 auto"
-            p="5px"
-            display="flex"
-            justifyContent="center"
-            backgroudColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : colors.greenAccent[700]
-            }
-            borderRadius="4px"
+            sx={{
+              width: "60%",
+              m: "0 auto",
+              p: "5px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "4px",
+              backgroundColor: `${
+                access === "admin"
+                  ? colors.greenAccent[600]
+                  : access === "manager"
+                    ? colors.greenAccent[700]
+                    : colors.greenAccent[800]
+              } !important`,
+              height: "30px",
+            }}
           >
             {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
             {access === "manager" && <SecurityOutlinedIcon />}
             {access === "user" && <LockOpenOutlinedIcon />}
             <Typography
-              colors={colors.grey[100]}
-              sx={{ ml: "5px" }}
+              sx={{
+                color: `${colors.grey[100]} !important`,
+                ml: "5px",
+                textTransform: "capitalize",
+              }}
             ></Typography>
           </Box>
         );
@@ -82,18 +102,18 @@ const Team = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: `${colors.greenAccent[300]} !important`,
           },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroudColor: colors.blueAccent[700],
+          "& .MuiDataGrid-columnHeader": {
+            backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
           },
-          "& .MuiDataGrid-virtualScroller": {
+          "& .MuiDataGrid-main": {
             backgroundColor: colors.primary[400],
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroudColor: colors.blueAccent[700],
+            backgroundColor: colors.blueAccent[700],
           },
         }}
       >
