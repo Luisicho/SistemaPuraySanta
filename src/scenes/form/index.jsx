@@ -84,7 +84,7 @@ const Form = () => {
                 value={values.lastName}
                 name="lastName"
                 error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName  && errors.lastName }
+                helperText={touched.lastName && errors.lastName}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
@@ -97,7 +97,7 @@ const Form = () => {
                 value={values.email}
                 name="email"
                 error={!!touched.email && !!errors.email}
-                helperText={touched.email  && errors.email}
+                helperText={touched.email && errors.email}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
@@ -108,7 +108,7 @@ const Form = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.contact}
-                name="contact "
+                name="contact"
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
                 sx={{ gridColumn: "span 4" }}
@@ -140,7 +140,7 @@ const Form = () => {
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
-            <Box sx={{ display:"flex", justifyContent:"end", mt:"20px "}}>
+            <Box sx={{ display: "flex", justifyContent: "end", mt: "20px " }}>
               <Button type="submit" color="secondary" variant="contained">
                 Crear Usuario Nuevo
               </Button>
