@@ -87,6 +87,35 @@ const Calendar = () => {
             ))}
           </List>
         </Box>
+        {/* CALENDAR */}
+        <Box sx={{ flex: "1 1 100%", ml: "15px" }}>
+          <FullCalendar
+            height="75vh"
+            plugins={[
+              dayGridPlugin,
+              timeGridPlugin,
+              interactionPlugin,
+              listPlugin,
+            ]}
+            headerToolbar={{
+              left: "prev, next today",
+              center: "title",
+              right: "dayGridMonth, timeGridWeek, timeGridDay, listMonth"
+            }}
+            initialView="dayGridMonth"
+            editable={true}
+            selectable={true}
+            selectMirror={true}
+            dayMaxEvents={true}
+            select={handleDateClick}
+            eventClick={handlreEventClick}
+            eventsSet={(events)=>setCurrentEvents(events)}
+            initialEvents={[
+              {id: "1234", title:"todo el dia evento", date:"2026-05-22"},
+              {id: "4321", title:"todo el dia evento", date:"2026-05-23"},
+            ]}
+          />
+        </Box>
       </Box>
     </Box>
   );
