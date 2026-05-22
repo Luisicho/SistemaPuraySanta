@@ -71,13 +71,13 @@ const Calendar = () => {
                   borderRadius: "2px",
                 }}
               >
-                <ListItem
+                <ListItemText
                   primary={event.title}
                   secondary={
                     <Typography>
                       {formatDate(event.start, {
                         year: "numeric",
-                        mouth: "short",
+                        month: "short",
                         day: "numeric",
                       })}
                     </Typography>
