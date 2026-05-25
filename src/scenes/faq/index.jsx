@@ -15,7 +15,7 @@ const FAQ = () => {
       <Header title="FAQ" subtitle="Preguntas frecuentes" />
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color={colors.greenAccent[500]} variant="h5">
+          <Typography sx={{color:colors.greenAccent[500]}} variant="h5">
             Una importante pregunta
           </Typography>
         </AccordionSummary>
@@ -25,7 +25,7 @@ const FAQ = () => {
       </Accordion>
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color={colors.greenAccent[500]} variant="h5">
+          <Typography sx={{color:colors.greenAccent[500]}} variant="h5">
             Una importante pregunta
           </Typography>
         </AccordionSummary>
@@ -35,7 +35,7 @@ const FAQ = () => {
       </Accordion>
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color={colors.greenAccent[500]} variant="h5">
+          <Typography sx={{color:colors.greenAccent[500]}} variant="h5">
             Una importante pregunta
           </Typography>
         </AccordionSummary>
